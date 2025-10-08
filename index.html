@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Undangan Pernikahan Ariel & Rahma</title>
+  <meta name="description" content="Undangan elegan Ariel & Rahma dengan RSVP, kirim doa, galeri, countdown, dan peta." />
+  <link rel="icon" href="assets/favicon.png" type="image/png" />
+  <link rel="preload" href="assets/hero.jpg" as="image" />
+  <link rel="preload" href="mp3.lagunikahan.mp3" as="mp3" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <audio src="Pamungkas - To The Bone (Official Music Video).mp3" id="bgMusic" loop></audio>
+ 
+  
+  <nav class="nav">
+    <div class="brand">Ariel & Rahma</div>
+    <button class="menu-btn" aria-label="Toggle menu">☰</button>
+    <ul class="menu">
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#details">Acara</a></li>
+      <li><a href="#gallery">Galeri</a></li>
+      <li><a href="#guestbook">Kirim Doa</a></li>
+      <li><a href="#rsvp">RSVP</a></li>
+      <li><a href="#location">Lokasi</a></li>
+    </ul>
+  </nav>
+
+  <script>
+
+const totalBunga = 20; 
+const body = document.body;
+
+for (let i = 0; i < totalBunga; i++) {
+  const bunga = document.createElement("div");
+  bunga.classList.add("flower");
+  bunga.textContent = "🌺"; 
+  bunga.style.left = Math.random() * 100 + "vw";
+  bunga.style.animationDuration = 5 + Math.random() * 5 + "s"; 
+  bunga.style.animationDelay = Math.random() * 5 + "s"; 
+  bunga.style.fontSize = 16 + Math.random() * 20 + "px";
+  body.appendChild(bunga);
+}
+</script>
+<style>
+.flower {
+  position: fixed;
+  top: -10px;
+  z-index: 9999;
+  animation-name: bungaJatuh;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0.8;
+  pointer-events: none;
+}
+@keyframes bungaJatuh {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ariel & Rahma - Undangan Pernikahan</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: #f7b6e7;
+      color: #000000;
+      text-align: center;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(50%);
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+    .couple {
+      font-size: 3em;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .date {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+    .countdown {
+      font-size: 1.5em;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px 24px;
+      border-radius: 15px;
+      display: inline-block;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .btn.primary {
+      background-color: #ff6b81;
+      color: white;
+    }
+    .btn.outline {
+      border: 2px solid rgb(0, 0, 0);
+      color: white;
+      background: transparent;
+    }
+
+    .btn:hover {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  </style>
+  
+</head>
+<body>
+
+  <header id="home" class="hero">
+    <img src="2.png" alt="Foto Ariel & Rahma" class="hero-img" />
+    <div class="hero-overlay">
+      <h1 class="couple">Ariel & Rahma</h1>
+      <p class="date">Minggu, 23 September 2030</p> 
+      <div id="countdown" class="countdown" aria-live="polite"></div>
+      <div class="hero-actions">
+        <a href="#rsvp" class="btn primary">Konfirmasi Kehadiran</a>
+        <button id="playMusic" class="btn outline" aria-label="Putar musik">▶ Putar Musik</button>
+      </div>
+    </div>
+  </header>
+
+  
+
+  <audio id="bgMusic" loop>
+    <source src="mp3.lagunikahan.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    
+    const targetDate = new Date("September 23, 2030 08:00:00").getTime(); 
+    const countdown = document.getElementById("countdown");
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+      countdown.innerHTML = 
+        days + " Hari " + hours + " Jam " + minutes + " Menit " + seconds + " Detik";
+
+      if (distance < 0) {
+        clearInterval(interval);
+        countdown.innerHTML = "Hari Bahagia Telah Tiba 💍";
+      }
+    }, 1000);
+
+
+    const music = document.getElementById("bgMusic");
+    const playBtn = document.getElementById("playMusic");
+    let isPlaying = false;
+
+    playBtn.addEventListener("click", () => {
+      if (isPlaying) {
+        music.pause();
+        playBtn.textContent = "▶ Putar Musik";
+      } else {
+        music.play();
+        playBtn.textContent = "❚❚ Jeda Musik";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+
+  <section id="details" class="section">
+    
+    <h2 class="section-title">Detail Acara</h2>
+    <div class="details-grid">
+      <div class="card">
+        
+        <h3>Akad Nikah</h3>
+        <p><strong>Waktu:</strong> 10.00 WIB</p>
+        <p><strong>Tanggal:</strong> Minggu, 23 September 2025</p>
+        <p><strong>Tempat:</strong> Masjid Agung Batam</p>
+      </div>
+      <div class="card">
+        <h3>Resepsi</h3>
+        <p><strong>Waktu:</strong> 19.00–21.00 WIB</p>
+        <p><strong>Tanggal:</strong> Minggu, 23 September 2025</p>
+        <p><strong>Tempat:</strong> Ballroom Hotel</p>
+      </div>
+      <div class="card quote">
+        <blockquote>
+          <br><br>“Dan di antara tanda-tanda kebesaran-Nya adalah Dia menciptakan pasangan-pasangan untukmu.” — QS. Ar-Rum: 21 <br><br>
+
+        </blockquote>
+        
+      </div>
+    </div>
+  </section>
+
+<section id="gallery" class="section">
+  <h2 class="section-title">Galeri Cinta</h2>
+  <div class="gallery">
+    <div class="gallery-track gallery-2">
+      <img src="3.png" alt="Foto Ariel & Rahma 1" class="glight" />
+      <img src="3.png" alt="Foto Ariel & Rahma 2" class="glight" />
+    </div>
+    <div class="gallery-controls">
+    </div>
+  </div>
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <img id="lightboxImg" alt="Foto galeri" />
+    <button id="lightboxClose" class="lightbox-close" aria-label="Tutup">✕</button>
+      <img src="2.png"  class="hero-img" />
+    <div class="hero-overlay">
+  </div>
+</section>
+
+  <section id="guestbook" class="section">
+    <h2 class="section-title">Kirim Doa & Ucapan</h2>
+    <form id="doaForm" class="form">
+      <input type="text" id="namaDoa" placeholder="Nama Anda" required aria-label="Nama" />
+      <textarea id="pesanDoa" placeholder="Tulis doa atau ucapan..." required aria-label="Ucapan"></textarea>
+      <button type="submit" class="btn primary">Kirim</button>
+      <p class="form-hint">Ucapan disimpan secara lokal di perangkat ini.</p>
+    </form>
+    <div id="ucapanList" class="ucapan-list" aria-live="polite"></div>
+  </section>
+  
+  <section id="rsvp" class="section">
+    <h2 class="section-title">Konfirmasi Kehadiran (RSVP)</h2>
+    <form id="rsvpForm" class="form">
+      <input type="text" id="namaRsvp" placeholder="Nama Anda" required aria-label="Nama" />
+      <select id="statusRsvp" required aria-label="Status kehadiran">
+        <option value="">Pilih status kehadiran</option>
+        <option value="Hadir">Hadir</option>
+        <option value="Tidak Hadir">Tidak Hadir</option>
+      </select>
+      <input type="number" id="jumlahRsvp" placeholder="Jumlah tamu (opsional)" min="1" aria-label="Jumlah tamu" />
+      <button type="submit" class="btn primary">Kirim RSVP</button>
+      <p class="form-hint">Data RSVPs disimpan secara lokal di perangkat ini.</p>
+    </form>
+    <div id="rsvpList" class="rsvp-list" aria-live="polite"></div>
+    <div class="share">
+      <button id="shareBtn" class="btn outline">Bagikan Undangan</button>
+      <span id="shareStatus" class="share-status"></span>
+    </div>
+  </section>
+
+  <section id="location" class="section">
+    <h2 class="section-title">Lokasi Acara</h2>
+    <div class="map-wrap">
+      <iframe
+        title="Peta lokasi acara"
+        src="https://www.google.com/maps?q=1.106,-104.030&z=14&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+    <a class="btn primary" href="https://maps.app.goo.gl/QBS7CvDEN3TdAT4C9" rel="noopener">Buka di Google Maps</a>
+  </section>
+
+  <footer class="footer">
+    <p>Dengan cinta,  • Minggu, 23 September 2030</p>
+    <p class="tiny">Terima kasih atas doa dan kehadiran Anda.</p>
+  </footer>
+
+</body>
+</html>
